@@ -1,0 +1,23 @@
+@import "../../../styles/variables.scss";
+
+main {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    
+    .main-section{
+        flex-grow: 1;
+        padding: 10px;
+
+    }
+    
+    .sidebar{
+        flex-grow: 0.2;
+        padding: 10px;
+        background-color: rgb(231, 231, 231);
+        box-shadow: 5px 0px 10px rgba(119, 119, 119, 0.322);
+    }
+
+   
+
+}

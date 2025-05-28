@@ -1,0 +1,53 @@
+main {
+    display: flex;
+    flex-direction: column;
+    .header{
+        
+        display: flex;
+        background-color: rgb(219, 219, 219);
+        padding: 10px;
+        height: 60px;
+        font-size: 24px;
+
+        .left-header{
+            display: flex;
+            flex-grow: 1;
+            justify-content: start;
+            align-items:center;
+        }
+
+        .right-header{
+            flex-grow: 1;
+            display: flex;
+            justify-content: end;
+            align-items:center;
+        }
+        
+        button {
+            padding: 10px;
+            margin-left: 20px;
+            
+        }
+    }
+
+    .main {
+        div {
+            margin: 20px;
+        }
+        .block{
+           gap: 30px;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+
+           button {
+                border: none;
+                width: 360px;
+                height: 30px;
+                cursor: pointer;
+           }
+        }
+    }
+
+
+}
