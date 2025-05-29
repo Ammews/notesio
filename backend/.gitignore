@@ -7,6 +7,10 @@ target/
 # Environment files
 .env
 
+# VS code
+.vscode
+
+
 ### STS ###
 .apt_generated
 .classpath
