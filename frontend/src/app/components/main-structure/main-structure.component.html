@@ -8,7 +8,16 @@
         <h1>Main Section</h1>
         
         <input type=" ">
-
+        <div class="user-list">
+            <h3>Usuários Cadastrados:</h3>
+            <ul>
+                @for (user of users; track user._id) {
+                    <p>{{ user.name }} - {{ user.email }}</p>
+                } @empty {
+                    <p>Nenhum usuário cadastrado</p>
+                }
+            </ul>
+        </div>
     </section>
 
 </main>

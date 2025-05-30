@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { LMarkdownEditorModule } from 'ngx-markdown-editor';
+import { User } from '../../models/user.model';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-main-structure',
@@ -8,5 +9,13 @@ import { LMarkdownEditorModule } from 'ngx-markdown-editor';
   styleUrl: './main-structure.component.scss'
 })
 export class MainStructureComponent {
+  users: User[] = []
 
+  constructor(private userService: UserService){
+    this.getAllUsers();
+  }
+
+  getAllUsers(){
+    this.userService.getUser().subscribe(users => this.users = users)
+  } 
 }
