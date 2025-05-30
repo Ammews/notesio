@@ -18,9 +18,7 @@ public class User {
 
     @Id
     private ObjectId id;
-
     private String name;
-    
     private String email;
 
 }
