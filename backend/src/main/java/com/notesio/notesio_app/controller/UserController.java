@@ -67,8 +67,10 @@ public class UserController {
         if (userDetails.getEmail() != null) {
             existingUser.setEmail(userDetails.getEmail());
         }
-        // Adicione outros campos que podem ser atualizados
-        
+        if (userDetails.getPassword() != null) {
+            existingUser.setPassword(userDetails.getPassword());
+        }
+
         User updatedUser = userServices.saveUser(existingUser);
         return ResponseEntity.ok(updatedUser);
     } else {
