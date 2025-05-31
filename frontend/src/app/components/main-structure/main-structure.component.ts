@@ -9,13 +9,5 @@ import { UserService } from '../../services/user.service';
   styleUrl: './main-structure.component.scss'
 })
 export class MainStructureComponent {
-  users: User[] = []
-
-  constructor(private userService: UserService){
-    this.getAllUsers();
-  }
-
-  getAllUsers(){
-    this.userService.getUser().subscribe(users => this.users = users)
-  } 
+  
 }
