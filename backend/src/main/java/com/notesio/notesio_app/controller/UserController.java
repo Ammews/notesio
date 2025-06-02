@@ -14,6 +14,8 @@ import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCrypt;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,12 +28,41 @@ import org.springframework.web.bind.annotation.RequestBody;
 @CrossOrigin(origins = "http://localhost:4200")
 public class UserController {
 
+
+    private BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(12);
+
     @Autowired
     private UserServices userServices;
 
     @GetMapping("/all")
     public ResponseEntity<List<User>> getAllUsers() {
         return new ResponseEntity<List<User>>(userServices.allUsers(), HttpStatus.OK); 
+    }
+
+    @GetMapping("/email/{email}")
+    public ResponseEntity<User> findByEmail(@PathVariable String email) {
+            Optional<User> user = userServices.findByEmail(email);
+            
+            if (user.isPresent()) {
+                return ResponseEntity.ok(user.get());
+            } else {
+                return ResponseEntity.notFound().build();
+            }
+    }
+
+    @GetMapping("/email/{email}/{password}")
+    public ResponseEntity<User> authUser(@PathVariable String email, @PathVariable String password) {
+            Optional<User> user = userServices.findByEmail(email);
+            
+            if (user.isPresent()) {
+                if (encoder.matches(password, user.get().getPassword())) {
+                    return ResponseEntity.ok(user.get());
+                } else {
+                    return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();     
+                }
+            } else {
+                return ResponseEntity.notFound().build();
+            }
     }
 
     @GetMapping("/{id}")
