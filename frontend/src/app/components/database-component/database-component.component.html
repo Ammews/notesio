@@ -1,10 +1,8 @@
     <div class="user-list">
             <h3>Usuários Cadastrados:</h3>
-            <ul>
-                @for (user of users; track user._id) {
-                    <p>{{ user.name }} - {{ user.email }}</p>
-                } @empty {
-                    <p>Nenhum usuário cadastrado</p>
-                }
-            </ul>
+          
+
+        <input type="text" class="form-control" placeholder="email" id="email" name="email" [(ngModel)] = "email" />
+        <input type="password" class="form-control" placeholder="password" id="password" name="password" [(ngModel)] = "password" />
+        <button (click)="getAuthUser()">Enviar</button>
         </div>

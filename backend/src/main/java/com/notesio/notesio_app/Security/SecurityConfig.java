@@ -14,19 +14,18 @@ import java.util.Arrays;
 public class SecurityConfig {
 
     // Nova sintaxe (Lambda DSL) - Spring Security 5.7+
-    @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.cors(cors -> cors.configurationSource(corsConfigurationSource())) // Configura CORS via Lambda
-            .csrf(csrf -> csrf.disable()) // Desabilita CSRF
-            .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/public/**").permitAll() // Rotas públicas
-                .anyRequest().authenticated() // Demais rotas exigem autenticação
-            )
-            .httpBasic(httpBasic -> {}); // Habilita Basic Auth
+ @Bean
+public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    http
+        .cors(cors -> cors.configurationSource(corsConfigurationSource())) // Mantém CORS
+        .csrf(csrf -> csrf.disable()) // Desabilita CSRF
+        .authorizeHttpRequests(auth -> auth
+            .anyRequest().permitAll() // 🔥 Permite TODAS as requisições sem autenticação
+        );
+        // Remova .httpBasic() para desativar autenticação
 
-        return http.build();
-    }
-
+    return http.build();
+}
     // Configuração CORS (igual ao anterior)
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
