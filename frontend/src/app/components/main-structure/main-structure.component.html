@@ -7,10 +7,19 @@
     <section class="main-section">
         <h1>Main Section</h1>
         
-        <input type=" ">
+        <div class="">
+            <ngx-editor-menu [editor]="editor"> </ngx-editor-menu>
+            <ngx-editor class="bg-amber-500 w-100"
+                [editor]="editor"
+                [ngModel]="html"
+                [disabled]="false"
+                [placeholder]="'Type here...'"
+                
+            ></ngx-editor>
+        </div>
     
     </section>
 
-    </main>
+</main>
 
 

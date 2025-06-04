@@ -1,28 +1,89 @@
 
-<main>
-    <section class="form-section">
+
+<body class="min-h-screen">
+    <main class="flex flex-col md:flex-row min-h-screen">
+        <!-- Form Section -->
+        <section class="form-container w-full md:w-1/2 lg:w-2/5 bg-white flex items-center justify-center p-8 md:p-12">
+            <div class="w-full max-w-md">
+                <!-- Logo -->
+                <div class="flex justify-center mb-10">
+                    <img src="https://placehold.co/160x60/0ea5e9/FFFFFF/png?text=NOTES.IO" alt="Logo" class="h-12">
+                </div>
+                
+                <!-- Title -->
+                <h1 class="text-3xl font-bold text-center text-secondary-800 mb-8">{{ title }}</h1>
+                
+                <!-- Form -->
+                <form class="space-y-6">
+                    <!-- Email Input -->
+                    <div class="space-y-2">
+                        <label for="email" class="block text-sm font-medium text-secondary-600">Email</label>
+                        <input 
+                            [ngModelOptions]="{standalone: true}"
+                            [(ngModel)] = "email"
+                            type="email" 
+                            id="email" 
+                            placeholder="seu@email.com" 
+                            class="input-field w-full px-4 py-3 border border-secondary-300 rounded-lg focus:outline-none transition-all"
+                            required
+                        >
+                    </div>
+                    
+                    <!-- Password Input -->
+                    <div class="space-y-2">
+                        <label for="password" class="block text-sm font-medium text-secondary-600">Senha</label>
+                        <input 
+                            [ngModelOptions]="{standalone: true}"
+                            [(ngModel)] = "password"
+                            type="password" 
+                            id="password" 
+                            placeholder="••••••••" 
+                            class="input-field w-full px-4 py-3 border border-secondary-300 rounded-lg focus:outline-none transition-all"
+                            required
+                        >
+                    </div>
+                    
+                    <!-- Remember & Forgot -->
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <input id="remember-me" name="remember-me" type="checkbox" class="h-4 w-4 text-primary-600 focus:ring-primary-200 border-secondary-300 rounded">
+                            <label for="remember-me" class="ml-2 block text-sm text-secondary-600">Lembrar de mim</label>
+                        </div>
+                        <div class="text-sm">
+                            <a href="#" class="font-medium text-primary-600 hover:text-primary-500">Esqueceu sua senha?</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Primary Button -->
+                    <button  (click)="getAuthUser()"  type="submit" class="btn-primary w-full flex justify-center py-3 px-4 border border-black rounded-lg text-sm font-medium text-black bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-200">
+                        {{ primaryBtnText }}
+                    </button>
+                    
+                    <!-- Divider -->
+                    <div class="divider flex items-center my-6">
+                        <div></div>
+                        <span class="px-3 text-sm text-secondary-400">OU</span>
+                        <div></div>
+                    </div>
+                    
+                    <!-- Secondary Button -->
+                    <button type="button" class="btn-secondary w-full flex justify-center py-3 px-4 border border-secondary-300 rounded-lg text-sm font-medium text-secondary-700 bg-white hover:bg-secondary-50 focus:outline-none focus:ring-2 focus:ring-secondary-200">
+                        {{ secondaryBtnText }}
+                    </button>
+                </form>
+                
         
-        <img src="https://placehold.co/100x50">
-        <h1> {{ title }}</h1>
-        <app-input-text-account></app-input-text-account>
-        <app-input-text-account></app-input-text-account>
-
-        <button class="primaryBtn">{{ primaryBtnText }}</button>
-
-        <div class="divisor">        
-            <div></div>
-            <span>OR</span>
-            <div></div>
-        </div>
-
-        <button class="secondaryBtn">{{ secondaryBtnText }}</button>
-    </section>
-    <section class="main-section">
-        <h2>Lorem ipsum dolor sit amet consectetur.</h2>
-        <img src="https://placehold.co/400x300">
-
-      
+            </div>
+        </section>
         
-
-    </section>
-</main>
+        <!-- Hero Section -->
+        <section class="hero-section w-full md:w-1/2 lg:w-3/5 bg-gray-200 from-primary-700 to-primary-900 flex flex-col items-center justify-center p-8 md:p-12 text-black">
+            <div class="max-w-md text-center">
+                <h2 class="text-3xl font-bold mb-6">Sua plataforma de notas na nuvem</h2>
+                <p class="text-lg mb-8 opacity-90">Acesse suas anotações de qualquer dispositivo, compartilhe com colegas e nunca mais perca uma ideia importante.</p>
+                <img src="https://placehold.co/400x300/FFFFFF/0ea5e9/png?text=Teste" alt="App Preview" class="rounded-lg shadow-xl mx-auto">
+                
+            </div>
+        </section>
+    </main>
+</body>
