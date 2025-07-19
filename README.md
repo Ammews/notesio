@@ -21,10 +21,7 @@ Sistema Web para anotações gerais inspirado no Notion e Obsidian, focado em us
     Permitir a criação de calendários compartilhados (Para gerir planos)<- Focado para empresas, então talvez caiba um plano aqui
 
 ## Funcionalidades adicionadas (Atualizar Regularmente):
-    CRUD with encript Done 
-    Text Editor Done
-    Login Done
-    
+
 
 ## Notas Finais
 
