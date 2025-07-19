@@ -3,8 +3,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { MainComponent } from './pages/main/main.component';
-import { DatabaseTestComponent } from './pages/database-test/database-test.component';
-import { TailwindTestComponent } from './pages/tailwind-test/tailwind-test.component';
+
 
 export const routes: Routes = [
 
@@ -23,15 +22,6 @@ export const routes: Routes = [
     {
         path:"main",
         component: MainComponent
-    },
-    {
-        path:"db-test",
-        component: DatabaseTestComponent 
-    },
-    {
-        path:"tailwind-test",
-        component: TailwindTestComponent 
     }
-
 
 ];
